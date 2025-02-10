@@ -1,13 +1,19 @@
 ﻿using BlazingPizza.Server;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Habilitar localización
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 
 builder.Services.AddControllersWithViews()
     .AddJsonOptions(options => {
         options.JsonSerializerOptions.AddContext<BlazingPizza.OrderContext>();
     });
+
 builder.Services.AddRazorPages();
 
 builder.Services.AddDbContext<PizzaStoreContext>(options =>
@@ -25,7 +31,24 @@ builder.Services.AddAuthentication()
 
 var app = builder.Build();
 
-// Initialize the database
+// Configurar los idiomas soportados
+var supportedCultures = new[]
+{
+    new CultureInfo("en"),
+    new CultureInfo("es")
+};
+
+var localizationOptions = new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new RequestCulture("en"),
+    SupportedCultures = supportedCultures,
+    SupportedUICultures = supportedCultures
+};
+
+// Aplicar configuración de localización
+app.UseRequestLocalization(localizationOptions);
+
+// Inicializar la base de datos
 var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
 using (var scope = scopeFactory.CreateScope())
 {
@@ -36,7 +59,7 @@ using (var scope = scopeFactory.CreateScope())
     }
 }
 
-// Configure the HTTP request pipeline.
+// Configurar el pipeline de la aplicación
 if (app.Environment.IsDevelopment())
 {
     app.UseWebAssemblyDebugging();
@@ -44,7 +67,6 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -59,7 +81,6 @@ app.UseIdentityServer();
 app.UseAuthorization();
 
 app.MapPizzaApi();
-
 app.MapRazorPages();
 app.MapControllers();
 app.MapFallbackToFile("index.html");
