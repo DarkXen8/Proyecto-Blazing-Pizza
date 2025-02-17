@@ -10,7 +10,7 @@
                 <label>Size:</label>
                 <input type="range" min="@Pizza.MinimumSize" max="@Pizza.MaximumSize" step="1" @bind="Pizza.Size" @bind:event="oninput" />
                 <span class="size-label">
-                    @(Pizza.Size)" (£@(Pizza.GetFormattedTotalPrice()))
+                    @(Pizza.Size)" (€@(Pizza.GetFormattedTotalPrice()))
                 </span>
             </div>
             <div>
@@ -31,7 +31,7 @@
                         <option value="-1" disabled selected>(select)</option>
                         @for (var i = 0; i < toppings.Count; i++)
                         {
-                            <option value="@i">@toppings[i].Name - (£@(toppings[i].GetFormattedPrice()))</option>
+                            <option value="@i">@toppings[i].Name - (€@(toppings[i].GetFormattedPrice()))</option>
                         }
                     </select>
                 }

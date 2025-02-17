@@ -6,7 +6,7 @@ public static class SeedData
     {
         var toppings = new Topping[]
 {
-    new Topping() { Name = "Queso extra", Price = 2.50m },
+            new Topping() { Name = "Queso extra", Price = 2.50m },
             new Topping() { Name = "Bacon americano", Price = 2.99m },
             new Topping() { Name = "Bacon británico", Price = 2.99m },
             new Topping() { Name = "Bacon canadiense", Price = 2.99m },
@@ -94,7 +94,7 @@ public static class SeedData
             Name = "Peperoni Extremo",
             Description = "Si el peperoni fuera una religión, esta pizza sería su dios.",
             BasePrice = 9.99m,
-            ImageUrl = "img/pizzas/pizza-peperoni.jpg",
+            ImageUrl = "img/pizzas/pizza-peperoni.png",
     },
 };
 
