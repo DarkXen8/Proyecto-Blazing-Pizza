@@ -6,9 +6,11 @@ body, html {
 
 body {
     padding-top: 5rem;
+    display: flex; /* Se añade display:flex para gestionar el layout */
     flex-direction: column;
-    font-family: 'quicksand';
-    overflow-y: hidden;
+    font-family: 'quicksand', sans-serif;
+    background-color: #f5f5f5; /* Fondo gris muy claro para un look moderno */
+    overflow-x: hidden; /* Se permite el scroll vertical y se oculta el horizontal */
 }
 
 form {
@@ -21,65 +23,71 @@ form {
 
 .top-bar {
     height: 5rem;
-    background-color: #FF362B;
-    background-image: linear-gradient(rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.25) 25%, rgba(0,0,0,0) 70%);
+    background: linear-gradient(90deg, #2c3e50, #34495e); /* Se cambia el fondo rojo a un degradado azul oscuro */
     display: flex;
-    align-items: stretch;
-    color: white;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
-    padding: 0 3rem;
+    align-items: center; /* Se centra verticalmente el contenido */
+    color: #ecf0f1; /* Texto en tono claro */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5); /* Sombra ligeramente más marcada */
+    padding: 0 2rem; /* Se reduce el padding horizontal */
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     z-index: 1030;
-    border-bottom:3px solid black;
+    border-bottom: 2px solid #7f8c8d; /* Borde inferior más sutil */
 }
+
+
 
 .logo {
     display: flex;
 }
 
     .logo > img {
-        margin-right: 3rem;
-        width: 9rem;
+        margin-right: 2rem; /* Se reduce el espacio a la derecha para mayor equilibrio */
+        width: 8rem; /* Se disminuye ligeramente el ancho de la imagen */
     }
 
 .content {
     display: flex;
-    height: 100vh;
+    min-height: calc(100vh - 5rem); /* Se usa min-height para considerar la altura de la top-bar */
     z-index: 1;
-    background-color: white;
+    background-color: #ecf0f1; /* Fondo en tono gris azulado claro */
 }
+
 
 .main {
     flex-grow: 1;
     overflow-y: auto;
-    background: linear-gradient(#FF362B 5%, #ffc68e 100%);
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Nuevo degradado en tonos púrpura-azules */
     padding: 1.5rem !important;
+    color:black;
 }
 
+
+
 .nav-tab {
-    margin: 0;
-    padding: 0.3rem 1.8rem;
-    display: inline-block;
-    background-color: rgba(0,0,0,0.1);
+    margin: 0 0.5rem; /* Se agrega margen horizontal para espaciar los tabs */
+    padding: 0.5rem 1.5rem; /* Se aumenta el padding para mayor comodidad visual */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
-    color: white;
+    background-color: rgba(0,0,0,0.15); /* Fondo ligeramente más oscuro */
+    border-radius: 0.5rem; /* Bordes redondeados para suavizar la apariencia */
+    font-size: 1rem; /* Aumenta un poco el tamaño de fuente */
+    color: #ecf0f1;
     position: relative;
     text-transform: uppercase;
-    transition: 0.2s ease-out;
+    transition: background-color 0.3s ease-out, transform 0.3s ease-out; /* Transición más suave y añade efecto de escala */
 }
 
     .nav-tab:hover {
-        color: white;
-        text-decoration: none;
-        background-color: rgba(255,255,255,0.3);
+        background-color: rgba(255,255,255,0.2);
+        transform: scale(1.05); /* Incrementa ligeramente el tamaño al pasar el cursor */
     }
+
+
 
     .nav-tab.active {
         background-color: rgba(255,255,255,0.2);
@@ -113,6 +121,7 @@ form {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem; /* Se añade un gap para separar los elementos */
 }
 
     .user-info img {
@@ -123,11 +132,12 @@ form {
     .user-info .username {
         display: block;
         font-weight: 700;
-        line-height: 0.7rem;
-        margin-top: 0.5rem;
-        color: white;
+        line-height: 1.2rem; /* Aumenta el line-height para mejorar la legibilidad */
+        margin: 0; /* Se elimina el margen superior */
+        color: #ecf0f1; /* Se usa un tono claro consistente con el nuevo encabezado */
         font-size: 1rem;
     }
+
 
     .user-info a {
         color: #fff2cc;
@@ -149,34 +159,38 @@ form {
 }
 
     .pizza-cards > li {
-        height: 10rem;
+        height: 12rem; /* Se incrementa la altura para mostrar mejor la imagen */
         position: relative;
         background-size: cover;
-        border-radius: 0.5rem;
+        border-radius: 0.75rem; /* Bordes más redondeados */
         list-style-type: none;
-        box-shadow: 0 3px 4px rgba(0,0,0,0.4);
-        transition: 0.1s ease-out;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Sombra ligeramente más suave */
+        transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; /* Transición mejorada para efectos hover */
     }
 
         .pizza-cards > li:hover {
-            transform: scale(1.02);
+            transform: scale(1.03);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.4);
         }
+
+
 
 .pizza-info {
     border-radius: 10px;
-    border: 3px solid black;
+    /* Se elimina el borde negro para un aspecto más limpio */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     position: absolute;
-    background: linear-gradient(rgba(0,0,0,0.7) 30%, rgba(0,0,0,0) 80%);
-    padding: 1rem 1rem;
-    color: #ffffff;
+    background: linear-gradient(180deg, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0) 90%);
+    padding: 1rem;
+    color: #ecf0f1;
     cursor: pointer;
-    text-shadow: 0 2px 2px rgba(0,0,0,0.5);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6); /* Sombra ajustada para suavizar el texto */
     line-height: 1.25rem;
 }
+
 
     .pizza-info .title {
         color: white;
@@ -201,22 +215,27 @@ form {
     }
 
 .price::before {
-    content: '£';
+    content: '€';
     font-weight: 300;
     font-size: 1.2rem;
     margin-right: 0.2rem;
 }
 
 .sidebar {
-    background-color: #410000;
+    background-color: #2c3e50; /* Se cambia el color de fondo a un azul oscuro */
     width: 20rem;
     display: flex;
     flex-direction: column;
     color: white;
-    font-weight:bold;
+    font-weight: bold;
     height: auto;
-    border: 10px solid black;
+    border-right: 4px solid #34495e; /* Se elimina el borde grueso negro y se sustituye por un borde derecho más fino */
+    padding: 1rem; /* Se agrega padding para mayor comodidad */
+    align-items:center;
+    justify-content:center;
 }
+
+
 
 .order-contents {
     overflow-y: auto;
@@ -234,7 +253,7 @@ form {
     }
 
 .order-total {
-    background-color: rgb(191, 52, 52);
+    background-color: #27ae60; /* Se cambia el color de fondo a un verde para dar contraste */
     height: 4rem;
     flex-shrink: 0;
     display: flex;
@@ -242,13 +261,15 @@ form {
     align-items: center;
     color: white;
     font-size: 1.2rem;
-    transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: all 0.5s ease; /* Transición más rápida y suave */
     padding: 0 1.5rem;
 }
 
-.order-total.hidden {
-    transform: translate3d(0, 4rem, 0);
-}
+
+    .order-total.hidden {
+        transform: translate3d(0, 4rem, 0);
+        display:none;
+    }
 
     .order-total .total-price {
         font-weight: 700;
@@ -256,7 +277,7 @@ form {
     }
 
         .order-total .total-price::before {
-            content: '£';
+            content: '€';
             font-weight: 300;
             margin: 0 0.1rem 0 0.4rem;
         }
@@ -277,13 +298,14 @@ form {
 }
 
 .cart-item {
-    background-color: #333333;
-    padding: 0.8rem 1.2rem;
-    border-radius: 6px;
-    font-weight: 100;
+    background-color: #444444; /* Se aclara ligeramente el fondo */
+    padding: 1rem 1.2rem; /* Se aumenta el padding para más espacio interno */
+    border-radius: 8px; /* Bordes más redondeados para un look moderno */
+    font-weight: 300; /* Aumenta la legibilidad */
     margin-top: 1rem;
     position: relative;
 }
+
 
     .cart-item .title {
         font-weight: 700;
@@ -302,40 +324,41 @@ form {
 
 .empty-cart {
     text-align: center;
-    margin: auto;
+    margin: 2rem auto; /* Se ajusta el margen para centrar y espaciar adecuadamente */
     font-size: 1.5rem;
-    font-weight: 100;
-    color: white;
-    font-weight:bold;
+    color: #7f8c8d; /* Se usa un gris suave para un mensaje sutil */
+    font-weight: 600;
 }
 
+
 .item-price {
-    font-weight: 500;
+    font-weight: 600; /* Se aumenta el grosor para mejorar la visibilidad del precio */
 }
 
     .item-price::before {
-        content: '£';
-        font-weight: 100;
+        content: '€'; /* Se cambia el símbolo de libra a euro */
+        font-weight: 300;
         margin-right: 0.3rem;
     }
 
+
 .delete-item {
     position: absolute;
-    top: 0;
-    right: 0;
-    content: 'X';
+    top: 0.5rem; /* Se añade espacio superior */
+    right: 0.5rem; /* Se añade espacio a la derecha */
     cursor: pointer;
-    color: #fff2cc;
+    color: #e74c3c; /* Se cambia a un rojo vibrante para indicar eliminación */
     width: 2rem;
     height: 2rem;
     text-align: center;
+    line-height: 2rem; /* Centra verticalmente la "X" */
+    font-weight: bold;
 }
 
     .delete-item:hover {
-        text-decoration: none;
-        color: #fff2cc;
-        background-color: rgba(255,255,255,0.1);
+        color: #c0392b; /* Se oscurece en hover para indicar interactividad */
     }
+
 
 .configured-pizza-item {
     display: flex;
@@ -348,11 +371,12 @@ form {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.6); /* Se oscurece un poco el overlay para mayor énfasis */
     z-index: 2000;
     display: flex;
     animation: dialog-container-entry 0.2s;
 }
+
 
 @keyframes dialog-container-entry {
     0% {
@@ -365,18 +389,20 @@ form {
 }
 
 .dialog {
-    background-color: white;
-    box-shadow: 0 0 12px rgba(0,0,0,0.6);
+    background-color: #fefefe; /* Fondo claro para un aspecto moderno */
+    border-radius: 8px; /* Bordes redondeados para suavizar la ventana */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Sombra más sutil y moderna */
     display: flex;
     flex-direction: column;
     z-index: 2000;
     align-self: center;
     margin: auto;
-    width: 700px;
+    width: 600px; /* Se reduce ligeramente el ancho para adaptarlo a pantallas medianas */
     max-height: calc(100% - 3rem);
-    animation: dialog-entry 0.4s;
-    animation-timing-function: cubic-bezier(0.075, 0.820, 0.165, 1.000);
+    animation: dialog-entry 0.4s cubic-bezier(0.075, 0.820, 0.165, 1.000);
 }
+
+
 
 @keyframes dialog-entry {
     0% {
@@ -389,55 +415,68 @@ form {
 }
 
 .dialog-title {
-    background-color: #444;
-    color: #fff2cc;
-    padding: 1.3rem 2rem;
+    background: linear-gradient(90deg, #2c3e50, #34495e); /* Fondo degradado en tonos azules oscuros */
+    color: #ecf0f1; /* Texto claro para un buen contraste */
+    padding: 1.5rem 2rem; /* Se incrementa el padding para mayor comodidad visual */
+    border-top-left-radius: 8px; /* Se redondean las esquinas superiores para integrarlo con .dialog */
+    border-top-right-radius: 8px;
 }
 
+
+
     .dialog-title h2 {
-        color: white;
-        font-size: 1.4rem;
+        color: #ecf0f1; /* Se mantiene el texto claro */
+        font-size: 1.6rem; /* Se incrementa ligeramente el tamaño de fuente para mayor legibilidad */
         margin: 0;
         font-family: 'Bahnschrift', Arial, Helvetica, sans-serif;
         text-transform: uppercase;
         line-height: 1.3rem;
     }
 
+
+
 .dialog-body {
     flex-grow: 1;
-    padding: 0.5rem 3rem 1rem 0;
+    padding: 1.5rem; /* Se aumenta el padding para mejorar la separación interna */
 }
+
+
 
 .dialog-buttons {
     height: 4rem;
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    background-color: #eee;
+    background-color: #ecf0f1; /* Fondo claro para contrastar con el contenido */
     padding: 0 1rem;
+    border-top: 1px solid #bdc3c7; /* Línea divisoria sutil */
+    border-bottom-left-radius: 8px; /* Redondeo en las esquinas inferiores para integrarlo con .dialog */
+    border-bottom-right-radius: 8px;
 }
 
-    .dialog-body > div {
-        display: flex;
-        margin-top: 1rem;
-        align-items: center;
-    }
 
-    .dialog-body label {
-        text-align: right;
-        width: 200px;
-        margin: 0 1.5rem;
-    }
 
-    .dialog-body input, .dialog-body select {
-        flex-grow: 1;
-        width: unset;
-    }
+.dialog-body > div {
+    display: flex;
+    margin-top: 1rem;
+    align-items: center;
+}
 
-    .dialog-body .size-label {
-        min-width: 110px;
-        text-align: right;
-    }
+.dialog-body label {
+    text-align: right;
+    width: 200px;
+    margin: 0 1.5rem;
+}
+
+.dialog-body input, .dialog-body select {
+    flex-grow: 1;
+    width: unset;
+}
+
+.dialog-body .size-label {
+    min-width: 110px;
+    text-align: right;
+}
 
 .dialog .toppings {
     text-align: center;
@@ -447,22 +486,23 @@ form {
 
 .dialog .topping {
     display: inline-block;
-    background-color: #a04343;
+    background-color: #e74c3c; /* Se cambia a un rojo vibrante que encaja con la nueva paleta de colores */
     color: white;
-    padding: 0.2rem 1rem;
-    border-radius: 2rem;
+    padding: 0.3rem 1.2rem; /* Se ajusta el padding para mayor comodidad visual */
+    border-radius: 1.5rem; /* Bordes redondeados para un aspecto más moderno */
     margin: 0.4rem 0.3rem;
     font-weight: 700;
 }
+
 
 .dialog .topping-price {
     font-weight: 100;
     font-size: 0.8rem;
 }
 
-.dialog .topping-price::before {
-    content: '£';
-}
+    .dialog .topping-price::before {
+        content: '€';
+    }
 
 .delete-topping {
     background: none;
@@ -472,9 +512,9 @@ form {
     cursor: pointer;
 }
 
-.delete-topping:hover {
-    color: yellow;
-}
+    .delete-topping:hover {
+        color: yellow;
+    }
 
 .form-message {
     padding: 0.5rem;
@@ -588,12 +628,12 @@ input[type=range] {
     }
 
     input[type=range]::-webkit-slider-thumb {
-        box-shadow: 0.9px 0.9px 1px rgba(0, 0, 49, 0.43), 0px 0px 0.9px rgba(0, 0, 75, 0.43);
-        border: 0px solid #00001e;
+        box-shadow: 0.9px 0.9px 1px rgba(0, 0, 0, 0.3);
+        border: 0;
         height: 20px;
         width: 20px;
         border-radius: 10px;
-        background: #d45352;
+        background: #2980b9; /* Se cambia a un azul que encaja con la nueva paleta */
         cursor: pointer;
         -webkit-appearance: none;
         margin-top: -7.1px;
@@ -614,12 +654,12 @@ input[type=range] {
     }
 
     input[type=range]::-moz-range-thumb {
-        box-shadow: 0.9px 0.9px 1px rgba(0, 0, 49, 0.43), 0px 0px 0.9px rgba(0, 0, 75, 0.43);
-        border: 0px solid #00001e;
+        box-shadow: 0.9px 0.9px 1px rgba(0, 0, 0, 0.3);
+        border: 0;
         height: 20px;
         width: 20px;
         border-radius: 10px;
-        background: #d45352;
+        background: #2980b9;
         cursor: pointer;
     }
 
@@ -647,12 +687,12 @@ input[type=range] {
     }
 
     input[type=range]::-ms-thumb {
-        box-shadow: 0.9px 0.9px 1px rgba(0, 0, 49, 0.43), 0px 0px 0.9px rgba(0, 0, 75, 0.43);
-        border: 0px solid #00001e;
+        box-shadow: 0.9px 0.9px 1px rgba(0, 0, 0, 0.3);
+        border: 0;
         height: 20px;
         width: 20px;
         border-radius: 10px;
-        background: #d45352;
+        background: #2980b9;
         cursor: pointer;
         margin-top: 0;
     }
@@ -660,6 +700,7 @@ input[type=range] {
 .checkout-cols {
     display: flex;
 }
+
     .checkout-cols h4 {
         margin-bottom: 1.5rem;
     }
@@ -667,10 +708,12 @@ input[type=range] {
     .checkout-cols > div {
         flex: 1;
         margin: 1rem;
-        border: 1px solid #ddd;
-        background: rgba(255,255,255,0.3);
-        padding: 1.25rem 1rem;
+        border: 1px solid #bdc3c7; /* Se oscurece el borde para darle más definición */
+        background: rgba(255,255,255,0.9); /* Se aumenta la opacidad del fondo */
+        padding: 1.5rem 1rem;
+        border-radius: 5px; /* Se añaden bordes redondeados para un look moderno */
     }
+
 
         .checkout-cols > div:first-child {
             margin-left: 0;
@@ -686,9 +729,9 @@ input[type=range] {
     left: calc(50% - 250px);
     width: 500px;
     height: 6px;
-    background-color: white;
+    background-color: #ecf0f1;
     overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2)
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
     .loading-bar::after {
@@ -696,14 +739,15 @@ input[type=range] {
         display: block;
         width: 200px;
         height: 100%;
-        background-color: #dc105a;
-        animation: progressbar-slide 1s infinite;
-        animation-timing-function: ease-in-out;
+        background-color: #2980b9; /* Se usa el azul de la nueva paleta */
+        animation: progressbar-slide 1s infinite ease-in-out;
     }
+
 
 .form-field {
     display: flex;
     margin: 0.5rem;
+    color: black;
 }
 
     .form-field > label {
