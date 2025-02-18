@@ -23,19 +23,20 @@ form {
 
 .top-bar {
     height: 5rem;
-    background: linear-gradient(90deg, #2c3e50, #34495e); 
+    background: linear-gradient(90deg, #2c3e50, #34495e); /* Se cambia el fondo rojo a un degradado azul oscuro */
     display: flex;
-    align-items: center; 
-    color: #ecf0f1; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.5); 
-    padding: 0 2rem; 
+    align-items: center; /* Se centra verticalmente el contenido */
+    color: #ecf0f1; /* Texto en tono claro */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5); /* Sombra ligeramente más marcada */
+    padding: 0 2rem; /* Se reduce el padding horizontal */
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     z-index: 1030;
-    border-bottom: 2px solid #7f8c8d; 
+    border-bottom: 2px solid #7f8c8d; /* Borde inferior más sutil */
 }
+
 
 
 .logo {
@@ -58,31 +59,33 @@ form {
 .main {
     flex-grow: 1;
     overflow-y: auto;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Nuevo degradado en tonos púrpura-azules */
     padding: 1.5rem !important;
 }
 
 
+
 .nav-tab {
-    margin: 0 0.5rem; 
-    padding: 0.5rem 1.5rem;
+    margin: 0 0.5rem; /* Se agrega margen horizontal para espaciar los tabs */
+    padding: 0.5rem 1.5rem; /* Se aumenta el padding para mayor comodidad visual */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0,0,0,0.15); 
-    border-radius: 0.5rem; 
-    font-size: 1rem; 
+    background-color: rgba(0,0,0,0.15); /* Fondo ligeramente más oscuro */
+    border-radius: 0.5rem; /* Bordes redondeados para suavizar la apariencia */
+    font-size: 1rem; /* Aumenta un poco el tamaño de fuente */
     color: #ecf0f1;
     position: relative;
     text-transform: uppercase;
-    transition: background-color 0.3s ease-out, transform 0.3s ease-out; 
+    transition: background-color 0.3s ease-out, transform 0.3s ease-out; /* Transición más suave y añade efecto de escala */
 }
 
     .nav-tab:hover {
         background-color: rgba(255,255,255,0.2);
-        transform: scale(1.05); 
+        transform: scale(1.05); /* Incrementa ligeramente el tamaño al pasar el cursor */
     }
+
 
 
     .nav-tab.active {
@@ -155,19 +158,20 @@ form {
 }
 
     .pizza-cards > li {
-        height: 12rem; 
+        height: 12rem; /* Se incrementa la altura para mostrar mejor la imagen */
         position: relative;
         background-size: cover;
-        border-radius: 0.75rem; 
+        border-radius: 0.75rem; /* Bordes más redondeados */
         list-style-type: none;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.3); 
-        transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; 
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Sombra ligeramente más suave */
+        transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; /* Transición mejorada para efectos hover */
     }
 
         .pizza-cards > li:hover {
             transform: scale(1.03);
             box-shadow: 0 6px 10px rgba(0,0,0,0.4);
         }
+
 
 
 .pizza-info {
@@ -217,15 +221,17 @@ form {
 }
 
 .sidebar {
-    background-color: #2b2b2b;
+    background-color: #2c3e50; /* Se cambia el color de fondo a un azul oscuro */
     width: 20rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     color: white;
-    height: 87vh;
-    overflow-y: auto;
+    font-weight: bold;
+    height: auto;
+    border-right: 4px solid #34495e; /* Se elimina el borde grueso negro y se sustituye por un borde derecho más fino */
+    padding: 1rem; /* Se agrega padding para mayor comodidad */
 }
+
 
 
 .order-contents {
@@ -244,7 +250,7 @@ form {
     }
 
 .order-total {
-    background-color: rgb(191, 52, 52);
+    background-color: #27ae60; /* Se cambia el color de fondo a un verde para dar contraste */
     height: 4rem;
     flex-shrink: 0;
     display: flex;
@@ -252,13 +258,14 @@ form {
     align-items: center;
     color: white;
     font-size: 1.2rem;
-    transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: all 0.5s ease; /* Transición más rápida y suave */
     padding: 0 1.5rem;
 }
 
-.order-total.hidden {
-    transform: translate3d(0, 4rem, 0);
-}
+
+    .order-total.hidden {
+        transform: translate3d(0, 4rem, 0);
+    }
 
     .order-total .total-price {
         font-weight: 700;
@@ -360,11 +367,12 @@ form {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(255,255,255,0.1); 
+    background-color: rgba(0, 0, 0, 0.6); /* Se oscurece un poco el overlay para mayor énfasis */
     z-index: 2000;
     display: flex;
-    animation: dialog-container-entry 0.4s;
+    animation: dialog-container-entry 0.2s;
 }
+
 
 @keyframes dialog-container-entry {
     0% {
@@ -391,6 +399,7 @@ form {
 }
 
 
+
 @keyframes dialog-entry {
     0% {
         transform: translateY(30px) scale(0.95);
@@ -410,6 +419,7 @@ form {
 }
 
 
+
     .dialog-title h2 {
         color: #ecf0f1; /* Se mantiene el texto claro */
         font-size: 1.6rem; /* Se incrementa ligeramente el tamaño de fuente para mayor legibilidad */
@@ -420,10 +430,12 @@ form {
     }
 
 
+
 .dialog-body {
     flex-grow: 1;
-    padding: 1.5rem; /* Se aumenta el padding para mejorar la separación */
+    padding: 1.5rem; /* Se aumenta el padding para mejorar la separación interna */
 }
+
 
 
 .dialog-buttons {
@@ -439,27 +451,28 @@ form {
 }
 
 
-    .dialog-body > div {
-        display: flex;
-        margin-top: 1rem;
-        align-items: center;
-    }
 
-    .dialog-body label {
-        text-align: right;
-        width: 200px;
-        margin: 0 1.5rem;
-    }
+.dialog-body > div {
+    display: flex;
+    margin-top: 1rem;
+    align-items: center;
+}
 
-    .dialog-body input, .dialog-body select {
-        flex-grow: 1;
-        width: unset;
-    }
+.dialog-body label {
+    text-align: right;
+    width: 200px;
+    margin: 0 1.5rem;
+}
 
-    .dialog-body .size-label {
-        min-width: 110px;
-        text-align: right;
-    }
+.dialog-body input, .dialog-body select {
+    flex-grow: 1;
+    width: unset;
+}
+
+.dialog-body .size-label {
+    min-width: 110px;
+    text-align: right;
+}
 
 .dialog .toppings {
     text-align: center;
@@ -483,9 +496,9 @@ form {
     font-size: 0.8rem;
 }
 
-.dialog .topping-price::before {
-    content: '€';
-}
+    .dialog .topping-price::before {
+        content: '€';
+    }
 
 .delete-topping {
     background: none;
@@ -495,9 +508,9 @@ form {
     cursor: pointer;
 }
 
-.delete-topping:hover {
-    color: yellow;
-}
+    .delete-topping:hover {
+        color: yellow;
+    }
 
 .form-message {
     padding: 0.5rem;
@@ -683,6 +696,7 @@ input[type=range] {
 .checkout-cols {
     display: flex;
 }
+
     .checkout-cols h4 {
         margin-bottom: 1.5rem;
     }
